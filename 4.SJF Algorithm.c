@@ -53,8 +53,8 @@ int main()
 //OUTPUT//
 //Enter number of process:3
 
-Enter Burst Time:
-p1:5
+//Enter Burst Time:
+/*p1:5
 p2:7
 p3:3
 Process         Burst Time      Waiting Time    Turnaround Time
