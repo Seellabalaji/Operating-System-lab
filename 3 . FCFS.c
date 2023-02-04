@@ -24,19 +24,19 @@ return 0;
 }
 
 
-//OUTPUT//
-//Enter total number of processes(maximum 20):3
+/*OUTPUT
+Enter total number of processes(maximum 20):3
 
-//Enter Process Burst Time
-//P[1]:7
-//P[2]:5
-//P[3]:9
+Enter Process Burst Time
+P[1]:7
+P[2]:5
+P[3]:9
 
-//Process         Burst Time      Waiting Time    Turnaround Time
-//P[1]            7               0               7
-//P[2]            5               7               12
-//P[3]            9               12              21
+Process         Burst Time      Waiting Time    Turnaround Time
+P[1]            7               0               7
+P[2]            5               7               12
+P[3]            9               12              21
 
-//Average Waiting Time:6.33
-//Average Turnaround Time:13.33
-//--------------------------------
+Average Waiting Time:6.33
+Average Turnaround Time:13.33
+--------------------------------
