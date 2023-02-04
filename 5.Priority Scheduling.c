@@ -1,35 +1,54 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<conio.h>
 int main()
-{
-    FILE *fptr1, *fptr2;
-    char filename[100], c;
-    printf("Enter the filename to open for reading \n");
-    scanf("%s", filename);
-    fptr1 = fopen(filename, "r");
-    if (fptr1 == NULL)
+ {
+   int x,n,p[10],pp[10],pt[10],w[10],t[10],awt,atat,i;
+   printf("Enter the number of process : ");
+   scanf("%d",&n);
+   printf("\n Enter process : time priorities \n");
+   for(i=0;i<n;i++)
     {
-        printf("Cannot open file %s \n", filename);
-        exit(0);
+      printf("\nProcess no %d : ",i+1);
+      scanf("%d  %d",&pt[i],&pp[i]);
+      p[i]=i+1;
     }
-    printf("Enter the filename to open for writing \n");
-    scanf("%s", filename);
-    fptr2 = fopen(filename, "w");
-    if (fptr2 == NULL)
-    {
-        printf("Cannot open file %s \n", filename);
-        exit(0);
-    }
-    c = fgetc(fptr1);
-    while (c != EOF)
-    {
-        fputc(c, fptr2);
-        c = fgetc(fptr1);
-    }
-    printf("\nContents copied to %s", filename);
-    fclose(fptr1);
-    fclose(fptr2);
-    return 0;
+  for(i=0;i<n-1;i++)
+   {
+     for(int j=i+1;j<n;j++)
+     {
+       if(pp[i]<pp[j])
+       {
+         x=pp[i];
+         pp[i]=pp[j];
+         pp[j]=x;
+         x=pt[i];
+         pt[i]=pt[j];
+         pt[j]=x;
+         x=p[i];
+         p[i]=p[j];
+         p[j]=x;
+      }
+   }
+}
+w[i]=0;
+awt=0;
+t[0]=pt[0];
+atat=t[0];
+for(i=1;i<n;i++)
+ {
+   w[i]=t[i-1];
+   awt+=w[i];
+   t[i]=w[i]+pt[i];
+   atat+=t[i];
+ }
+printf("\n\n Job \t Burst Time \t Wait Time \t Turn Around Time   Priority \n");
+for(i=0;i<n;i++)
+  printf("\n %d \t\t %d  \t\t %d \t\t %d \t\t %d \n",p[i],pt[i],w[i],t[i],pp[i]);
+awt/=n;
+atat/=n;
+printf("\n Average Wait Time : %d \n",awt);
+printf("\n Average Turn Around Time : %d \n",atat);
+getch();
 }
 
 
